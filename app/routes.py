@@ -17,8 +17,8 @@ from .pass_grade.ppu_pass import ppu_grade
 @app.route('/', methods=['GET'])
 def apiOverview():
     return {
-        'regresi': 'http://localhost:5000/regresi',
-        'klasifikasi': 'http://localhost:5000/klasifikasi'
+        'regresi': 'https://api-kasdd.herokuapp.com/regresi',
+        'klasifikasi': 'https://api-kasdd.herokuapp.com/klasifikasi'
     }
 
 @app.route('/regresi', methods=['POST'])
@@ -81,6 +81,7 @@ def klasifikasi():
         return {'result': str(notPass)}
 
     # Take the data
+    sum_score = 0
     sum_score += request.json["score_bio"] 
     sum_score += request.json["score_fis"] 
     sum_score += request.json["score_kim"] 
